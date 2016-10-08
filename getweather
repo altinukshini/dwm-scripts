@@ -1,0 +1,4 @@
+#!/bin/bash
+# Get detailed weather forecast [for given city]
+
+curl -s http://wttr.in/Pristina | less -R -E -X

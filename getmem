@@ -1,0 +1,4 @@
+#!/bin/bash
+#Get memory being used
+
+free -h | awk '{print $3}' | sed -n '2p'

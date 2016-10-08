@@ -1,0 +1,4 @@
+#!/bin/bash
+# Lock screen before suspend to RAM
+
+lock & sleep 1 & sudo pm-suspend &

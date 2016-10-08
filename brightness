@@ -1,0 +1,13 @@
+#!/bin/bash
+#Brightness change [for keyboard shortcut]
+
+if [ "$1" == "up" ]
+then
+        xbacklight -inc 10
+elif [ "$1" == "down" ]
+then
+        xbacklight -dec 10
+else
+        echo "Use: brightness [up|down]"
+fi
+

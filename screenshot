@@ -1,0 +1,5 @@
+#!/bin/bash
+# Take screenshot to specified location
+
+import -window root -delay 500 /home/altin/Pictures/Screenshots/Screenshot$(date +"-%F-%H-%M-%S").jpg
+#gnome-screenshot -f /home/altin/Pictures/Screenshots/Screenshot$(date +"-%F-%H-%M-%S").jpg

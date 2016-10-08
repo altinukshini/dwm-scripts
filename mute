@@ -1,0 +1,4 @@
+#!/bin/bash
+#Mute or unmute the sound [toggle]
+
+amixer -D pulse sset Master toggle | grep 'Front Left:' | awk '{print $6}' | tr -d '[]'

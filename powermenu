@@ -1,0 +1,15 @@
+#!/bin/bash
+# switch power state using dmenu(1)
+
+selection=$(printf 'lock\nlock-suspend\npoweroff\nreboot\nsuspend' \
+		| dmenu -f -i -l 5 -p Action: \
+			-fn monospace:size=12)
+
+case "${selection}" in
+	lock|lock-suspend)
+		${selection}
+		;;
+	poweroff|reboot|suspend)
+		doas ${selection}
+		;;
+esac

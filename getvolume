@@ -1,0 +1,22 @@
+#!/bin/bash
+# Get Volume
+
+volume="$(amixer -D pulse get Master | tail -n1 | awk '{ print $5 }' | tr -d '[%]')"
+mute="$(amixer -D pulse get Master | tail -n1 | awk '{ print $6 }' | tr -d '[]')"
+
+if [ "$volume" -gt 0 ]
+then
+	echo -e "${volume}%"
+else
+
+	if [ "$volume" == "off" ]
+	then
+		echo -e "Mute"
+	elif [ "$volume" -eq 0 ]
+	then
+		echo -e "Mute"
+	fi
+
+fi
+
+#amixer -D pulse get Master | tail -n1 | awk '{ print $5 }' | tr -d '[]'

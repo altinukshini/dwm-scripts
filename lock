@@ -1,0 +1,8 @@
+#!/bin/bash
+# lock the session and save slock's mugshots
+
+xset dpms force off
+
+pkill -SIGSTOP xbattmon\|setdwmstat
+slock ${@}
+pkill -SIGCONT xbattmon\|setdwmstat

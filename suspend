@@ -1,0 +1,4 @@
+#!/bin/bash
+#Suspend computer
+
+sleep 1 & sudo pm-suspend &

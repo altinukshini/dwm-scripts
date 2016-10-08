@@ -1,0 +1,27 @@
+#!/bin/bash
+# get local IP addresses otherwise 'down'
+
+opt=-o
+
+case ${#} in
+	1)
+	[ ${1} = '-4' ] || [ ${1} = '-6' ] \
+		&& opt="${opt} ${1}" \
+		|| dev="dev ${1}"
+	;;
+	2)
+	opt="${opt} ${1}"
+	dev="dev ${2}"
+	;;
+	3)
+	printf 'Usage: getip [-4|-6] [interface_name]\n'
+	exit 1
+	;;
+esac
+
+ip=$(ip ${opt} address show ${dev} scope global primary up \
+	| awk '{ print $4 }' \
+	| cut -d/ -f1
+)
+
+printf '%s\n' "${ip:-down}"

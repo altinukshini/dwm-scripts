@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo -n "Temp: " ; echo "$(acpi -t | awk '{ print $4 }')°C"

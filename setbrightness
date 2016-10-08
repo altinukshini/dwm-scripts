@@ -1,0 +1,4 @@
+#!/bin/bash
+#Set brightness level
+
+xbacklight -set $1

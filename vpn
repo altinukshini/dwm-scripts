@@ -1,0 +1,12 @@
+#!/bin/bash
+# Connect to VPN by specifying VPN name and up/down for connect or disconnect
+
+if [ "$2" == "up" ]
+then
+	nmcli -a con up id $1
+elif [ "$2" == "down" ]
+then
+	nmcli -a con down id $1
+else
+	echo "Use: vpn [VPN Name] [up|down]"
+fi

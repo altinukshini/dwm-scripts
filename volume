@@ -1,0 +1,15 @@
+#!/bin/bash
+#Change volume for 5%, used for keyboard shortcut
+
+if [ "$1" == "up" ]
+then
+	amixer -D pulse sset Master 5%+ | grep 'Front Left:' | awk '{print $5}' | tr -d '[]'
+elif [ "$1" == "down" ]
+then
+	amixer -D pulse sset Master 5%- | grep 'Front Left:' | awk '{print $5}' | tr -d '[]'
+elif [ "$1" == "mute" ]
+then
+	amixer -D pulse sset Master toggle | grep 'Front Left:' | awk '{print $6}' | tr -d '[]'
+else
+	echo "volume [up|down|mute]"
+fi

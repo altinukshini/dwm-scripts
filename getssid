@@ -1,0 +1,12 @@
+#!/bin/sh
+# get the wifi network's SSID otherwise 'down'
+
+sudo wpa_cli status \
+	| awk -F= \
+		'/^ssid/ {
+			ssid = $2
+			exit(0)
+		}
+		END {
+			print (ssid == "") ? "down" : ssid
+		}'

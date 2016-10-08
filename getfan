@@ -1,0 +1,5 @@
+#!/bin/bash
+# get CPU fan speed in RPM
+
+# platforn specific
+grep -E 'status:|speed:|level:' /proc/acpi/ibm/fan
