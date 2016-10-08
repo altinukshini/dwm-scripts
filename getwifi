@@ -6,7 +6,7 @@ ip=$(ip route get 8.8.8.8 2>/dev/null|grep -Eo 'src [0-9.]+'|grep -Eo '[0-9.]+')
 if hash iw
 then
 	wifi=$(iw wlp3s0 link | grep SSID | sed 's,.*SSID: ,,')
-	connectedto=$(iw wlp4s0 link | grep Connected | awk '{print $3}' | cut -c 10-)
+	connectedto=$(iw wlp3s0 link | grep Connected | awk '{print $3}' | cut -c 10-)
 fi
 
 echo -e "$wifi $connectedto > $ip"
