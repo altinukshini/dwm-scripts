@@ -1,0 +1,19 @@
+#!/bin/bash
+#Switch DP monitor to left/right/mirror
+
+case "$1" in
+	left)
+		#left
+		xrandr --output LVDS-1-1 --off --output VIRTUAL1 --off --output DP-1-3 --off --output VGA-1-1 --off --output LVDS2 --primary --mode 1600x900 --pos 1920x0 --rotate normal --output VGA2 --off --output DP-1-2 --off --output DP-1-1 --mode 1920x1080 --pos 0x0 --rotate normal
+	;;
+	right)
+		#right
+		xrandr --output LVDS-1-1 --off --output VIRTUAL1 --off --output DP-1-3 --off --output VGA-1-1 --off --output LVDS2 --primary --mode 1600x900 --pos 0x0 --rotate normal --output VGA2 --off --output DP-1-2 --off --output DP-1-1 --mode 1920x1080 --pos 1600x0 --rotate normal
+	;;
+	mirror)
+		#mirror
+		xrandr --output LVDS-1-1 --off --output VIRTUAL1 --off --output DP-1-3 --off --output VGA-1-1 --off --output LVDS2 --primary --mode 1600x900 --pos 0x0 --rotate normal --output VGA2 --off --output DP-1-2 --off --output DP-1-1 --mode 1600x900 --pos 0x0 --rotate normal
+	;;
+	*)
+		echo "Use: dp [left|right|mirror]"
+esac

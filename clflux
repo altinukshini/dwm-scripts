@@ -1,0 +1,12 @@
+#!/bin/bash
+# Turn xflux on or off
+
+if [ "$1" == "on" ]
+then
+	xflux -l 42.6667 -g 21.1667 -k 2800
+elif [ "$1" == "off" ]
+then
+	killall xflux
+else
+	echo "Usage: clflux [on|off]"
+fi
