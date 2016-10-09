@@ -10,6 +10,6 @@ case "${selection}" in
 		${selection}
 		;;
 	poweroff|reboot|suspend)
-		doas ${selection}
+		sudo ${selection}
 		;;
 esac
